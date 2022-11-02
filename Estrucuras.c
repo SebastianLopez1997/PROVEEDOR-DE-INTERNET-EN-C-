@@ -32,9 +32,21 @@ typedef struct
 typedef struct 
 {
     STPersonal Dato;
-    STFactura Factura;
     STServicio Servicio;
+    nodoFactura * Factura;
 }STCliente;
+
+typedef struct{
+    STFactura Factura;
+    nodoFactura * sig;
+    nodoFactura * ante;
+}nodoFactura;
+
+typedef struct{
+    STCliente Cliente;
+    arbolClientes * izq;
+    arbolClientes * der;
+}arbolClientes;
 
 typedef struct {
     /// Datos personales
@@ -50,5 +62,5 @@ typedef struct {
     /// Servicios
     int Internet;
     int Cable;
-
 } STRegistroCliente;
+
