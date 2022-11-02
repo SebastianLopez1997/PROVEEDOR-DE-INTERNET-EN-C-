@@ -32,7 +32,6 @@ typedef struct
 typedef struct
 {
     STPersonal Dato;
-    STFactura Factura;
     STServicio Servicio;
 } STCliente;
 
