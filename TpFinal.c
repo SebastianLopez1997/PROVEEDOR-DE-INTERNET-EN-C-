@@ -14,7 +14,9 @@ int main()
     int suma = num + nume;
     printf("suma");
 
-    arbolClientes Arboles;
+    arbolClientes * Arboles;
+    arbolClientes * arbolito;
     
+
     return 0;
 }
