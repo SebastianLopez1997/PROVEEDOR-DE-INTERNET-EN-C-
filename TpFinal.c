@@ -2,7 +2,9 @@
 #include <time.h>
 #include <string.h>
 #include <math.h>
-#include <Estrucuras.h>
+#include "Clientes.h"
+#include "Facturas.h"
+#include "arbolClientes.h"
 
 int main()
 {
@@ -17,6 +19,5 @@ int main()
     arbolClientes * Arboles;
 
     /// Si llega esto esta todo ok
-
     return 0;
 }
