@@ -38,13 +38,14 @@ typedef struct
 {
     STPersonal Dato;
     STServicio Servicio;
+    struct nodoFactura *Factura;
 } STCliente;
 
 typedef struct
 {
     STFactura Factura;
-    nodoFactura *sig;
-    nodoFactura *ante;
+    struct nodoFactura *sig;
+    struct nodoFactura *ante;
 } nodoFactura;
 
 typedef struct
