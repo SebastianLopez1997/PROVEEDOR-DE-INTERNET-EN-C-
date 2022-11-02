@@ -1,3 +1,8 @@
+#include <stdio.h>
+#include <time.h>
+#include <string.h>
+#include <math.h>
+
 typedef struct
 {
     char Direccion[20];
@@ -37,6 +42,20 @@ typedef struct
 
 typedef struct
 {
+    STFactura Factura;
+    nodoFactura *sig;
+    nodoFactura *ante;
+} nodoFactura;
+
+typedef struct
+{
+    STCliente Cliente;
+    struct arbolClientes *izq;
+    struct arbolClientes *der;
+} arbolClientes;
+
+typedef struct
+{
     /// Datos personales
     int id;
     int DNI;
@@ -51,11 +70,3 @@ typedef struct
     int Internet;
     int Cable;
 } STRegistroCliente;
-
-typedef struct Estrucuras
-{
-    STPersonal p;
-    STFactura f;
-    nodo *der;
-    nodo *izq;
-}nodo;

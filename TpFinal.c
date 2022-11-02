@@ -2,6 +2,7 @@
 #include <time.h>
 #include <string.h>
 #include <math.h>
+#include <Estrucuras.h>
 
 int main()
 {
@@ -12,6 +13,8 @@ int main()
     int num = 2;
     int suma = num + nume;
     printf("suma");
+
+    arbolClientes Arboles;
+
     return 0;
 }
-
