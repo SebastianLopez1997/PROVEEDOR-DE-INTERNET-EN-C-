@@ -11,6 +11,7 @@ int main()
     int nume = 1;
     int num = 2;
     int suma = num + nume;
-    printf("suma");
+    printf("\nsuma %i ", suma);
     return 0;
 }
+
