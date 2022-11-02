@@ -15,8 +15,8 @@ int main()
     printf("suma");
 
     arbolClientes * Arboles;
-    arbolClientes * arbolito;
-    
+
+    /// Si llega esto esta todo ok
 
     return 0;
 }
