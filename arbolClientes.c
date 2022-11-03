@@ -35,5 +35,42 @@ void mostrarArbol(arbolClientes * arbol){
     }
 }
 void mostrarNodoArbol(arbolClientes * nodo){
-    mostrarCliente(nodo->Cliente);
+    mostrarCliente(nodo->Cliente); //<-Falta definir esta funcion
+}
+
+arbolClientes * borrarCliente(arbolClientes * arbol, arbolClientes * borrado){
+    if(arbol){
+        if(borrado->Cliente.Dato.DNI == arbol->Cliente.Dato.DNI){
+            if(arbol->izq){
+                arbolClientes * masDerecha=nodoMasDerecha(arbol->izq);
+                arbol=masDerecha;
+                arbol->izq=borrarCliente(arbol->izq, masDerecha);
+            }else if(arbol->der){
+                arbolClientes * masIzquierda=nodoMasIzquierda(arbol->izq);
+                arbol=masIzquierda;
+                arbol->der=borrarCliente(arbol->der, masIzquierda);
+            }else{              //En caso de que sea hoja.
+                free(arbol);
+                arbol=NULL;
+            }
+        }else if(borrado->Cliente.Dato.DNI  > arbol->Cliente.Dato.DNI){
+            arbol->der=borrarCliente(arbol->der, borrado);
+        }else{
+            arbol->izq=borrarCliente(arbol->izq, borrado);
+        }
+    }
+    return arbol;
+}
+
+arbolClientes * nodoMasDerecha(arbolClientes * arbol){
+    if(arbol->der){
+        arbol=nodoMasDerecha(arbol->der);
+    }
+    return arbol;
+}
+arbolClientes * nodoMasIzquierda(arbolClientes * arbol){
+    if(arbol->izq){
+        arbol=nodoMasIzquierda(arbol->izq);
+    }
+    return arbol;
 }

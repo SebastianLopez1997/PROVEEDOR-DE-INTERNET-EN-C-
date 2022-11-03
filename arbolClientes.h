@@ -16,4 +16,6 @@ arbolClientes * crearNodoArbol(STCliente cliente);
 arbolClientes * agregarNodoArbol(arbolClientes * arbol, arbolClientes * nuevoNodo);
 void mostrarArbol(arbolClientes * arbol);
 void mostrarNodoArbol(arbolClientes * nodo);
-
+arbolClientes * borrarCliente(arbolClientes * arbol, arbolClientes * borrado);
+arbolClientes * nodoMasDerecha(arbolClientes * arbol);
+arbolClientes * nodoMasIzquierda(arbolClientes * arbol);
