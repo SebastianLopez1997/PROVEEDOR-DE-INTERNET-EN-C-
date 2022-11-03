@@ -93,16 +93,18 @@ arbolClientes * buscarNodoCliente(arbolClientes * arbol, int DNI){
     return aux;
 }
 
-arbolClientes * modificarDatosCliente(arbolClientes * arbol){
+arbolClientes * modificarDatosPersonalesCliente(arbolClientes * arbol){
     char seguir='s';
     int opcion, flag=1, dniBuscado;
     arbolClientes * modificado=inicArbol();
+    STCliente nuevo;
     
     while(seguir=='s'){
         printf("Ingrese el DNI del cliente.\n");
         scanf("%i", &dniBuscado);
         modificado=buscarNodoCliente(arbol, dniBuscado);
         if(modificado!=NULL){
+            nuevo=modificado->Cliente;
             seguir='n';
         }else{
             printf("El DNI ingresado no ha sido encontrado.\n");
@@ -115,7 +117,14 @@ arbolClientes * modificarDatosCliente(arbolClientes * arbol){
     while(seguir=='s'){
         
         printf("Que valor desea modificar?\n");
-        /*printf de cada uno de los valores posibles a modificar*/
+        printf("1. Nombre.\n");
+        printf("2. Apellido.\n");
+        printf("3. DNI.\n");
+        printf("4. Telefono.\n");
+        printf("5. Barrio.\n");
+        printf("6. Calle.\n");
+        printf("7. Altura.\n");
+
         scanf("%i", opcion);
         switch(opcion){
             case 1:
@@ -128,14 +137,58 @@ arbolClientes * modificarDatosCliente(arbolClientes * arbol){
                 }
                 break;
             case 2:
+                printf("Ha seleccionado la opcion 2.\n");
+                seguir=confirmacionBucle();
+                if(seguir=='s'){
+                    /*llamada a la función que modifica este valor.*/
+                    flag=0;
+                    system("cls");
+                }
                 break;
             case 3:
+                printf("Ha seleccionado la opcion 3.\n");
+                seguir=confirmacionBucle();
+                if(seguir=='s'){
+                    /*llamada a la función que modifica este valor.*/
+                    flag=0;
+                    system("cls");
+                }
                 break;
             case 4:
+                printf("Ha seleccionado la opcion 4.\n");
+                seguir=confirmacionBucle();
+                if(seguir=='s'){
+                    /*llamada a la función que modifica este valor.*/
+                    flag=0;
+                    system("cls");
+                }
                 break;
-            case 5:
+            case 5:                
+                printf("Ha seleccionado la opcion 5.\n");
+                seguir=confirmacionBucle();
+                if(seguir=='s'){
+                    /*llamada a la función que modifica este valor.*/
+                    flag=0;
+                    system("cls");
+                }
                 break;
             case 6:
+                printf("Ha seleccionado la opcion 6.\n");
+                seguir=confirmacionBucle();
+                if(seguir=='s'){
+                    /*llamada a la función que modifica este valor.*/
+                    flag=0;
+                    system("cls");
+                }
+                break;
+            case 7:
+                printf("Ha seleccionado la opcion 7.\n");
+                seguir=confirmacionBucle();
+                if(seguir=='s'){
+                    /*llamada a la función que modifica este valor.*/
+                    flag=0;
+                    system("cls");
+                }
                 break;
         }
 
@@ -143,8 +196,8 @@ arbolClientes * modificarDatosCliente(arbolClientes * arbol){
         system("cls");
     }
 
-    if(flag==0){        /*Hubo modifiación, entonces procede a la sustitución del nodo.*/
-        
+    if(flag==0){        /*Hubo modifiación, entonces procede a la sustitución de la estructura.*/
+        modificado->Cliente=nuevo;
     }
 
     return arbol;

@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Clientes.h"
+#include "Facturas.h"
 
 /// Estructuras.
 typedef struct{
     STCliente Cliente;
+    struct nodoFactura * Factura;
     struct arbolClientes * izq;
     struct arbolClientes * der;
 }arbolClientes;
@@ -20,5 +22,5 @@ arbolClientes * borrarCliente(arbolClientes * arbol, arbolClientes * borrado);
 arbolClientes * nodoMasDerecha(arbolClientes * arbol);
 arbolClientes * nodoMasIzquierda(arbolClientes * arbol);
 arbolClientes * buscarNodoCliente(arbolClientes * arbol, int DNI);
-arbolClientes * modificarDatosCliente(arbolClientes * arbol);
+arbolClientes * modificarDatosPersonalesCliente(arbolClientes * arbol);
 char confirmacionBucle();
