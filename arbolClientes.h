@@ -19,3 +19,6 @@ void mostrarNodoArbol(arbolClientes * nodo);
 arbolClientes * borrarCliente(arbolClientes * arbol, arbolClientes * borrado);
 arbolClientes * nodoMasDerecha(arbolClientes * arbol);
 arbolClientes * nodoMasIzquierda(arbolClientes * arbol);
+arbolClientes * buscarNodoCliente(arbolClientes * arbol, int DNI);
+arbolClientes * modificarDatosCliente(arbolClientes * arbol);
+char confirmacionBucle();
