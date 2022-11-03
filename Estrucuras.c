@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <time.h>
-#include <string.h>
-#include <math.h>
-
 typedef struct
 {
     char Direccion[20];
@@ -34,28 +29,26 @@ typedef struct
     int Cable;
 } STServicio;
 
-typedef struct
+typedef struct 
 {
     STPersonal Dato;
     STServicio Servicio;
-} STCliente;
+    struct nodoFactura * Factura;
+}STCliente;
 
-typedef struct
-{
+typedef struct{
     STFactura Factura;
-    nodoFactura *sig;
-    nodoFactura *ante;
-} nodoFactura;
+    struct nodoFactura * sig;
+    struct nodoFactura * ante;
+}nodoFactura;
 
-typedef struct
-{
+typedef struct{
     STCliente Cliente;
-    struct arbolClientes *izq;
-    struct arbolClientes *der;
-} arbolClientes;
+    struct arbolClientes * izq;
+    struct arbolClientes * der;
+}arbolClientes;
 
-typedef struct
-{
+typedef struct {
     /// Datos personales
     int id;
     int DNI;

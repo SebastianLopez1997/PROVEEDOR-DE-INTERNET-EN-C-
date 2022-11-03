@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <time.h>
+#include <stdlib.h>
 #include <string.h>
-#include <math.h>
+#include "Facturas.h"
 
 typedef struct
 {
@@ -9,14 +9,6 @@ typedef struct
     int Altura;
     char Barrio[20];
 } STDireccion;
-
-typedef struct
-{
-    int fecha;
-    int Total;
-    char Nombre[30];
-    char DNI[15];
-} STFactura;
 
 typedef struct
 {
@@ -38,24 +30,10 @@ typedef struct
 {
     STPersonal Dato;
     STServicio Servicio;
+    struct nodoFactura * Factura;
 } STCliente;
 
-typedef struct
-{
-    STFactura Factura;
-    nodoFactura *sig;
-    nodoFactura *ante;
-} nodoFactura;
-
-typedef struct
-{
-    STCliente Cliente;
-    struct arbolClientes *izq;
-    struct arbolClientes *der;
-} arbolClientes;
-
-typedef struct
-{
+typedef struct {
     /// Datos personales
     int id;
     int DNI;
