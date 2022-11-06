@@ -7,7 +7,6 @@
 /// Estructuras.
 typedef struct{
     STCliente Cliente;
-    struct nodoFactura * Factura;
     struct arbolClientes * izq;
     struct arbolClientes * der;
 }arbolClientes;

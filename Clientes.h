@@ -30,6 +30,7 @@ typedef struct
 {
     STPersonal Dato;
     STServicio Servicio;
+    struct nodoFactura * Factura;
 } STCliente;
 
 typedef struct {
