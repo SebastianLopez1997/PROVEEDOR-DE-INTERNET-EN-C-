@@ -11,7 +11,9 @@ typedef struct
     char DNI[15];
 } STFactura;
 
+
 typedef struct{
+    int id;
     STFactura Factura;
     struct nodoFactura * sig;
     struct nodoFactura * ante;
