@@ -11,3 +11,5 @@ STFactura crearFactura(int fecha, int total, char nombre[30], char DNI[15]){
     nueva.Total=total;
     return nueva;
 }
+
+
