@@ -13,7 +13,7 @@ typedef struct
 typedef struct
 {
     int id;
-    int DNI;
+    char DNI;
     char Nombre[30];
     char Apellido[30];
     char NumeroCel[20];
@@ -33,7 +33,8 @@ typedef struct
     struct nodoFactura * Factura;
 } STCliente;
 
-typedef struct {
+typedef struct
+{
     /// Datos personales
     int id;
     int DNI;
@@ -48,4 +49,3 @@ typedef struct {
     int Internet;
     int Cable;
 } STRegistroCliente;
-

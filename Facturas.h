@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+
 /// === Estructuras.
 typedef struct
 {
@@ -11,14 +13,13 @@ typedef struct
     char DNI[15];
 } STFactura;
 
-
-typedef struct{
+typedef struct
+{
     int id;
     STFactura Factura;
-    struct nodoFactura * sig;
-    struct nodoFactura * ante;
-}nodoFactura;
+    struct nodoFactura *sig;
+    struct nodoFactura *ante;
+} nodoFactura;
 
 /// === Prototipados.
 STFactura crearFactura(int fecha, int total, char nombre[30], char DNI[15]);
-
