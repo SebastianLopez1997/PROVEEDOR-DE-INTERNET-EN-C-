@@ -79,30 +79,30 @@ arbolClientes * nodoMasIzquierda(arbolClientes * arbol){
     return arbol;
 }
 
-arbolClientes * buscarNodoCliente(arbolClientes * arbol, int DNI){
+arbolClientes * buscarNodoCliente(arbolClientes * arbol, int idCliente){
     arbolClientes * aux=inicArbol();
     int flag=1;
     if(arbol && flag==1){
-        aux=buscarNodoCliente(arbol->izq, DNI);
-        if(arbol->Cliente.Dato.DNI==DNI){
+        aux=buscarNodoCliente(arbol->izq, idCliente);
+        if(arbol->Cliente.Dato.id==idCliente){
             aux=arbol;
             flag=0;
         }
-        aux=buscarNodoCliente(arbol->der, DNI);
+        aux=buscarNodoCliente(arbol->der,idCliente);
     }
     return aux;
 }
 
 arbolClientes * modificarDatosPersonalesCliente(arbolClientes * arbol){
     char seguir='s';
-    int opcion, flag=1, dniBuscado;
+    int opcion, flag=1, idBuscado;
     arbolClientes * modificado=inicArbol();
     STCliente nuevo;
     
     while(seguir=='s'){
-        printf("Ingrese el DNI del cliente.\n");
-        scanf("%i", &dniBuscado);
-        modificado=buscarNodoCliente(arbol, dniBuscado);
+        printf("Ingrese el ID del cliente.\n");
+        scanf("%i", &idBuscado);
+        modificado=buscarNodoCliente(arbol, idBuscado);
         if(modificado!=NULL){
             nuevo=modificado->Cliente;
             seguir='n';
@@ -203,10 +203,4 @@ arbolClientes * modificarDatosPersonalesCliente(arbolClientes * arbol){
     return arbol;
 }
 
-char confirmacionBucle(){
-    char seguir;
-    printf("Presione 's' para continuar.\n");
-    fflush(stdin);
-    scanf("%c", &seguir);
-    return seguir;
-}
+

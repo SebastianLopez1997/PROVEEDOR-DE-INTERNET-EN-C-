@@ -23,4 +23,3 @@ arbolClientes * nodoMasDerecha(arbolClientes * arbol);
 arbolClientes * nodoMasIzquierda(arbolClientes * arbol);
 arbolClientes * buscarNodoCliente(arbolClientes * arbol, int DNI);
 arbolClientes * modificarDatosPersonalesCliente(arbolClientes * arbol);
-char confirmacionBucle();

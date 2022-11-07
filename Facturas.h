@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-
 /// === Estructuras.
 typedef struct
 {
@@ -23,3 +21,5 @@ typedef struct
 
 /// === Prototipados.
 STFactura crearFactura(int fecha, int total, char nombre[30], char DNI[15]);
+void MostrarTodasLasFacturas(nodoFactura *Lista);
+void MuestraUnicaFactura(STFactura Factura);

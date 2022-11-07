@@ -5,6 +5,10 @@
 #include "Clientes.h"
 #include "Facturas.h"
 #include "arbolClientes.h"
+#include "Utilidades.h"
+#include "random.h"
+#include "Estrucuras.h"
+#include "Admin.h"
 
 int main()
 {
@@ -22,26 +26,33 @@ int main()
     {
     case 1:
         int opcionCliente = 0;
-        /// FUNCION LOGIN DE USUARIO
-
-        printf("Seleccione 1_Para ver sus datos\nSeleccione 2_Para ver las facturas\nSeleccione 3_Para modificar datos personales\nSeleccione 4_Para solicitar labaja");
-        switch (opcionCliente)
+        while (opcionCliente > 0 && opcionCliente < 5)
         {
-        case 1:
-            // FUNCION PARA VER LOS DATOS CARGADOS
+            printf("Seleccione 1_Para ver sus datos\nSeleccione 2_Para ver las facturas\nSeleccione 3_Para modificar datos personales\nSeleccione 4_Para solicitar labaja");
+            scanf("%i", &opcionCliente);
+            /// FUNCION LOGIN DE USUARIO
+            switch (opcionCliente)
+            {
+            case 1:
+                // FUNCION PARA VER LOS DATOS CARGADOS
 
-            break;
-        case 2:
-            /// FUNCION PARA VER TODAS LAS FACURAS DEL USUARIO
-            break;
-        case 3:
-            /// FUNCION PARA MODIFICAR LOS DATOS DEL USUARIO
-            break;
-        case 4:
-            /// FUNCION PARA PEDIR LA BAJA AL ADMINISTRADOR
-            break;
-        default:
-            break;
+                break;
+            case 2:
+                /// FUNCION PARA VER TODAS LAS FACURAS DEL USUARIO
+                break;
+            case 3:
+                /// FUNCION PARA MODIFICAR LOS DATOS DEL USUARIO
+                break;
+            case 4:
+                /// FUNCION PARA PEDIR LA BAJA AL ADMINISTRADOR
+                break;
+            default:
+                printf("\nSelecciono una opcion invalida\n");
+                break;
+
+                printf("Precione 0 para salir o 1 para volver al menu");
+                scanf("%i", &opcionCliente);
+            }
         }
     case 2:
         printf("Un gusto verlo nuevamente, ingrese los datos personales solicitados");
@@ -59,6 +70,6 @@ int main()
         break;
     }
     system("cls");
-    
+
     return 0;
 }
