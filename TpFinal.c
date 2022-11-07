@@ -10,13 +10,13 @@ int main()
 {
     int opcion = 0;
     system("cls");
-<<<<<<< HEAD
+///<<<<<<< HEAD
 
     int nume = 1;
     int num = 2;
     int suma = num + nume;
     printf("suma");
-=======
+///=======
     system("pause");
     while (opcion != 1 || opcion != 2 || opcion != 3)
     {
@@ -30,7 +30,7 @@ int main()
     case 1:
         int opcionCliente = 0;
         /// FUNCION LOGIN DE USUARIO
->>>>>>> c8b738889ca733ed468df5483617ca99174ece01
+///>>>>>>> c8b738889ca733ed468df5483617ca99174ece01
 
         printf("Seleccione 1_Para ver sus datos\nSeleccione 2_Para ver las facturas\nSeleccione 3_Para modificar datos personales\nSeleccione 4_Para solicitar labaja");
         switch (opcionCliente)
@@ -68,10 +68,10 @@ int main()
     }
     system("cls");
 
-<<<<<<< HEAD
+///<<<<<<< HEAD
     system("pause");
     /// Si llega esto esta todo ok
-=======
->>>>>>> c8b738889ca733ed468df5483617ca99174ece01
+///=======
+///>>>>>>> c8b738889ca733ed468df5483617ca99174ece01
     return 0;
 }
