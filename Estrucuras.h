@@ -70,4 +70,3 @@ typedef struct
     int Internet;
     int Cable;
 } STRegistroCliente;
-
