@@ -10,7 +10,7 @@ int main()
 {
     printf("Hola muuundo!");
     system("cls");
-    int asd;
+
     int nume = 1;
     int num = 2;
     int suma = num + nume;
@@ -18,6 +18,7 @@ int main()
 
     arbolClientes * Arboles;
 
+    system("pause");
     /// Si llega esto esta todo ok
     return 0;
 }
