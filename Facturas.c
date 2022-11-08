@@ -38,7 +38,6 @@ nodoFactura *CrearFacturaNodo(STFactura factura)
     nueva->Factura = factura;
     nueva->sig = NULL;
     nueva->ante = NULL;
-
     return nueva;
 }
 
