@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Facturas.h"
-#include "arbolClientes.h"
 #define INTERNET 1500
 #define CABLE 500
 
@@ -28,7 +27,7 @@ nodoFactura *agregarAlPrincipio(nodoFactura *lista, nodoFactura *nuevoNodo)
         lista->sig = nuevoNodo;
         nuevoNodo->ante = lista;
     }
-    lista=nuevoNodo;
+    lista = nuevoNodo;
     return lista;
 }
 

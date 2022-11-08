@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "Clientes.h"
-#include "Facturas.h"
-
 /// modificar datos clientes.
 void modificarNombre(char nombre[])
 {
@@ -78,7 +75,7 @@ STCliente CargarUnCliente()
     STCliente ClienteNuevo;
     ClienteNuevo.Dato = cargaDatosPersonales();
     ClienteNuevo.Servicio = CargaServicio();
-    
+
     return ClienteNuevo;
 }
 
@@ -95,9 +92,10 @@ STPersonal cargaDatosPersonales()
     return dato;
 }
 
-STLogin cargaLogin(STPersonal cliente){
+STLogin cargaLogin(STPersonal cliente)
+{
     STLogin login;
-    login.id=cliente.id;
+    login.id = cliente.id;
     strcpy(login.pass, cliente.DNI);
 
     return login;
@@ -123,5 +121,3 @@ STServicio CargaServicio()
     }
     return Servicio;
 }
-
-

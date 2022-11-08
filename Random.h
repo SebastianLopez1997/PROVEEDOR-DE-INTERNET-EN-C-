@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifndef RANDOM_H_INCLUDED
+#define RANDOM_H_INCLUDED
+
 
 typedef struct
 {
@@ -19,4 +19,4 @@ typedef struct
     int Cable;
 } STRegistroCliente;
 
-
+#endif

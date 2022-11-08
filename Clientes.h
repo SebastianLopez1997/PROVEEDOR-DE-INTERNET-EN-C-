@@ -1,7 +1,5 @@
-#include <string.h>
-#include "Facturas.h"
-#include "Admin.h"
-#include "arbolClientes.h"
+#ifndef CLIENTES_H_INCLUDED
+#define CLIENTES_H_INCLUDED
 
 typedef struct
 {
@@ -69,3 +67,5 @@ void cambiarPassword(char password[]);
 STCliente CargarUnCliente();
 STPersonal cargaDatosPersonales();
 STServicio CargaServicio();
+
+#endif

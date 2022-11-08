@@ -4,10 +4,12 @@
 #include "Admin.h"
 #include "arbolClientes.h"
 #include "Facturas.h"
+#include "Utilidades.h"
 
-void Menu()
+arbolClientes *Menu(arbolClientes *arbolPrincipal)
 {
     int opcion = 0;
+    char seguir='s';
 
     while (opcion != 1 || opcion != 2 || opcion != 3)
     {
@@ -16,6 +18,9 @@ void Menu()
             scanf("%i", &opcion);
         }
     }
+
+    while(seguir=='s'){
+
     switch (opcion)
     {
     case 1:
@@ -55,14 +60,17 @@ void Menu()
         break;
     case 3:
         printf("Bienvenido, te deseamos que tengas la mejor experiencia con nuestro servicios, a continuacion se te ofrecera servicios y planes para que puedas solicitar el que desee, al finalizar se le solocitara sus datos personales para poder realizar la instalacion de los servicios");
-        
-        arbolCliente *Nuevo = crearNodoArbol();
-
+        STCliente nuevoCliente = CargarUnCliente();
+        arbolClientes *Nuevo = crearNodoArbol(nuevoCliente);
+        arbolPrincipal = agregarNodoArbol(arbolPrincipal, Nuevo);
         /// ACA IRIA EL ALTA USUARIO.
 
         break;
     default:
-
+        printf("\nOpcion invalida\n");
+        seguir=confirmacionBucle();
         break;
     }
+    }
+    return arbolPrincipal;
 }

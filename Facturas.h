@@ -1,9 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "arbolClientes.h"
-#include "Admin.h"
-
+#ifndef FACTURAS_H_INCLUDED
+#define FACTURAS_H_INCLUDED
 /// === Estructuras.
 typedef struct
 {
@@ -29,3 +25,5 @@ void mostrarFactura(arbolClientes *arbol);
 void MostrarTodasLasFacturasDeUnCliente(nodoFactura *Lista);
 nodoFactura *inicLista();
 nodoFactura *agregarAlPrincipio(nodoFactura *lista, nodoFactura *nuevoNodo);
+
+#endif

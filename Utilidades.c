@@ -9,9 +9,11 @@ char confirmacionBucle()
     scanf("%c", &seguir);
     return seguir;
 }
-int solicitarIdCliente(){
-    int idCliente; ///SOLICITAR ID CLIENTE
+
+int solicitarIdCliente()
+{
+    int idCliente; /// SOLICITAR ID CLIENTE
     printf("\nIngrese ID de cliente a buscar");
-    scanf("%d",idCliente);
+    scanf("%d", idCliente);
     return idCliente;
 }

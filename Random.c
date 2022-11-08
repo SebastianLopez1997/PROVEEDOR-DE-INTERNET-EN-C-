@@ -63,7 +63,7 @@ void domicilioRandom(char domicilio[])
 void movilRandom(char barrio[])
 {
     char barrio[][20] = {"Acantilados", "Aeroparque", "Alfar", "Caisamar", "Centenario", "Cerrito", "Constitucion", "Estrada", "Faro", "Juramento", "Libertad",
-                        "Montemar", "Pueyrredon", "Sarmiento", "Zacagnini"};
+                         "Montemar", "Pueyrredon", "Sarmiento", "Zacagnini"};
 
     int a = rand() % 16;
     strcpy(barrio, barrio[a]);
@@ -78,40 +78,40 @@ void dniRandom(char DNI[])
 {
     int opcion = rand() % 9;
     int num = rand() % 5000000 + 25000000;
-    switch(opcion)
+    switch (opcion)
     {
     case 0:
-        num+=11342685;
+        num += 11342685;
         break;
     case 1:
-        num+=12751073;
+        num += 12751073;
         break;
     case 2:
-        num+=6574321;
+        num += 6574321;
         break;
     case 3:
-        num+=9574618;
+        num += 9574618;
         break;
     case 4:
-        num+=5784165;
+        num += 5784165;
         break;
     case 5:
-        num+=4895432;
+        num += 4895432;
         break;
     case 6:
-        num+=13961259;
+        num += 13961259;
         break;
     case 7:
-        num+=7547588;
+        num += 7547588;
         break;
     case 8:
-        num+=8796112;
+        num += 8796112;
         break;
     }
     DNI[10];
-    itoa(num,DNI,10);
+    itoa(num, DNI, 10);
 }
-        ///PARA COMPROBAR SI EL DNI YA ESTA CARGADO OJO FALTAN DATOS A INTRODUCIR
+/// PARA COMPROBAR SI EL DNI YA ESTA CARGADO OJO FALTAN DATOS A INTRODUCIR
 /*int ComprobarDNI(char DNI[20], ///nodo del cliente )
 {
     int flag = 0;
@@ -121,7 +121,3 @@ void dniRandom(char DNI[])
         }
     return flag;
 }*/
-
-
-
-

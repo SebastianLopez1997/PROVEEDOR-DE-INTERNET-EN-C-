@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Clientes.h"
-#include "Facturas.h"
 #include "arbolClientes.h"
 #include "Menu.h"
 #include "Admin.h"
@@ -15,8 +14,8 @@ arbolClientes *inicArbol()
 arbolClientes *crearNodoArbol(STCliente cliente)
 {
     arbolClientes *nuevo = malloc(sizeof(arbolClientes));
-    nuevo->Cliente= cliente;
-
+    nuevo->Cliente = cliente;
+    nuevo->Factura = inicLista();
     nuevo->der = NULL;
     nuevo->izq = NULL;
     return nuevo;
@@ -123,7 +122,7 @@ arbolClientes *buscarNodoCliente(arbolClientes *arbol, int idCliente)
             }
             else
             {
-                if (idCliente> arbol->login.id)
+                if (idCliente > arbol->login.id)
                 {
                     aux = buscarNodoCliente(arbol->izq, idCliente);
                 }
@@ -137,7 +136,7 @@ arbolClientes *buscarNodoCliente(arbolClientes *arbol, int idCliente)
     return aux;
 }
 
-arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)
+arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)  
 {
     char seguir = 's';
     int opcion, flag = 1, idBuscado;
@@ -151,7 +150,7 @@ arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)
         modificado = buscarNodoCliente(arbol, idBuscado);
         if (modificado != NULL)
         {
-            nuevo = modificado->Cliente;
+            nuevo = modificado->Cliente;          
             seguir = 'n';
         }
         else
@@ -233,7 +232,7 @@ arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)
             seguir = confirmacionBucle();
             if (seguir == 's')
             {
-                cambiarPassword(nuevo.login.pass);
+                cambiarPassword(arbol->login.pass);
                 flag = 0;
                 system("cls");
             }
