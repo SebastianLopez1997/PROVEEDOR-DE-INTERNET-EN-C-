@@ -20,6 +20,8 @@ typedef struct
 } nodoFactura;
 
 /// === Prototipados.
-STFactura crearFactura(int fecha, int total, char nombre[30], char DNI[15]);
+STFactura crearFactura(arbolClientes *Arbol, int fecha, char nombre[], char DNI[]);
 void MostrarTodasLasFacturas(nodoFactura *Lista);
 void MuestraUnicaFactura(STFactura Factura);
+void mostrarFactura(arbolClientes *arbol);
+void MostrarTodasLasFacturasDeUnCliente(nodoFactura *Lista);

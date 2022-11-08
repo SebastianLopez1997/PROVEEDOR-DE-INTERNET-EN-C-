@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct {
+typedef struct
+{
     /// Datos personales
     int id;
     char DNI[8];
@@ -11,13 +12,11 @@ typedef struct {
     char Apellido[30];
     char NumeroCel[20];
     /// Direccion
-    char Direccion[20];
-    char Altura[5];
+    char Direccion[20]; 
     char Barrio[20];
     /// Servicios
     int Internet;
     int Cable;
 } STRegistroCliente;
 
-#define DIM 50
 

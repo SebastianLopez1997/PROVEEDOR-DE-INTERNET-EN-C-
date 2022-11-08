@@ -6,14 +6,18 @@
 typedef struct
 {
     char Direccion[20];
-    int Altura;
     char Barrio[20];
 } STDireccion;
 
 typedef struct
 {
     int id;
-    char DNI;
+    char pass[8];
+} STLogin;
+
+typedef struct
+{
+    char DNI[20];
     char Nombre[30];
     char Apellido[30];
     char NumeroCel[20];
@@ -27,7 +31,7 @@ typedef struct
 } STServicio;
 
 typedef struct
-{
+{   STLogin login;
     STPersonal Dato;
     STServicio Servicio;
 } STCliente;
@@ -36,15 +40,26 @@ typedef struct
 {
     /// Datos personales
     int id;
-    int DNI;
+    char DNI[8];
+    char pass[8];
     char Nombre[30];
     char Apellido[30];
     char NumeroCel[20];
     /// Direccion
     char Direccion[20];
-    int Altura;
+    char Altura[5];
     char Barrio[20];
     /// Servicios
     int Internet;
     int Cable;
 } STRegistroCliente;
+
+/// MODIFICAR DATOS CLIENTE.
+void modificarNombre(char nombre[]);
+void modificarApellido(char apellido[]);
+void modificarTelefono(char telefono[]);
+void modificarBarrio(char barrio[]);
+void modificarCalle(char calle[]);
+void modificarAltura(char altura[]);
+void modificarDomicilio();
+void cambiarPassword(char password[]);
