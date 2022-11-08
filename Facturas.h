@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "arbolClientes.h"
+#include "Admin.h"
 
 /// === Estructuras.
 typedef struct
@@ -25,3 +27,5 @@ void MostrarTodasLasFacturas(nodoFactura *Lista);
 void MuestraUnicaFactura(STFactura Factura);
 void mostrarFactura(arbolClientes *arbol);
 void MostrarTodasLasFacturasDeUnCliente(nodoFactura *Lista);
+nodoFactura *inicLista();
+nodoFactura *agregarAlPrincipio(nodoFactura *lista, nodoFactura *nuevoNodo);

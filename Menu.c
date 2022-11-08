@@ -1,9 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include "Menu.h"
+#include "Clientes.h"
+#include "Admin.h"
+#include "arbolClientes.h"
+#include "Facturas.h"
 
-main()
+void Menu()
 {
     int opcion = 0;
 
@@ -53,6 +55,8 @@ main()
         break;
     case 3:
         printf("Bienvenido, te deseamos que tengas la mejor experiencia con nuestro servicios, a continuacion se te ofrecera servicios y planes para que puedas solicitar el que desee, al finalizar se le solocitara sus datos personales para poder realizar la instalacion de los servicios");
+        
+        arbolCliente *Nuevo = crearNodoArbol();
 
         /// ACA IRIA EL ALTA USUARIO.
 
@@ -61,5 +65,4 @@ main()
 
         break;
     }
-
 }

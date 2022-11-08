@@ -1,23 +1,35 @@
 #include <stdio.h>
 #include <string.h>
 #include "Admin.h"
-#include "Utilidades.c"
-#include "arbolClientes.c"
-#include "Clientes.c"
+#include "Utilidades.h"
+#include "arbolClientes.h"
+#include "Clientes.h"
 
-
-
-int ComprobarAdmin(char usuario[20], char contraseña[20])
+int ComprobarAdmin(char usuario[20], char contrasena[20])
 {
     int flag = 0;
-    if ((strcmpi(usuario, "Administrador") == 0) && (strcmpi(contraseña, "Administrador") == 0))
+    if ((strcmpi(usuario, "Administrador") == 0) && (strcmpi(contrasena, "Administrador") == 0))
     {
         flag = 1;
     }
     return flag;
 }
 
-void menuAdministrador()
+int ComprobarUsuario(arbolClientes *arbol, char usuario[20], char contrasena[20])
+{
+    int flag = 0;
+    if ((strcmpi(usuario, arbol->login.id) == 0) && (strcmpi(contrasena, arbol->login.pass) == 0))
+    {
+        flag = 1;
+    }
+    else
+    {
+        printf("\nDatos ingresador incorrectos\n");
+    }
+    return flag;
+}
+
+void menuAdministrador(arbolClientes * arbol)
 {
     int flag = 0;
     char user[20];
@@ -33,7 +45,7 @@ void menuAdministrador()
         gets(password);
         if (ComprobarAdmin(user, password) == 1)
         {
-            funcionesAdministrador();
+            funcionesAdministrador(arbol);
         }
         else
         {

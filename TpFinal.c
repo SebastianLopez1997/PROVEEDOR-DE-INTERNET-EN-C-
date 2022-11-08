@@ -13,8 +13,8 @@
 int main()
 {
     arbolClientes *Arbol = inicArbol();
-
-    system("cls");
+    
+    Menu();
 
     return 0;
 }

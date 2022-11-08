@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include "Facturas.h"
+#include "Admin.h"
+#include "arbolClientes.h"
 
 typedef struct
 {
@@ -17,6 +17,7 @@ typedef struct
 
 typedef struct
 {
+    int id;
     char DNI[20];
     char Nombre[30];
     char Apellido[30];
@@ -31,7 +32,7 @@ typedef struct
 } STServicio;
 
 typedef struct
-{   STLogin login;
+{
     STPersonal Dato;
     STServicio Servicio;
 } STCliente;
@@ -63,3 +64,8 @@ void modificarCalle(char calle[]);
 void modificarAltura(char altura[]);
 void modificarDomicilio();
 void cambiarPassword(char password[]);
+
+/// CARGA CLIENTE.
+STCliente CargarUnCliente();
+STPersonal cargaDatosPersonales();
+STServicio CargaServicio();

@@ -16,6 +16,7 @@ arbolClientes *crearNodoArbol(STCliente cliente)
 {
     arbolClientes *nuevo = malloc(sizeof(arbolClientes));
     nuevo->Cliente= cliente;
+
     nuevo->der = NULL;
     nuevo->izq = NULL;
     return nuevo;
@@ -114,15 +115,15 @@ arbolClientes *buscarNodoCliente(arbolClientes *arbol, int idCliente)
     arbolClientes *aux = inicArbol();
     if (arbol)
     {
-        if (idCliente == arbol->Cliente.login.id)
+        if (idCliente == arbol->login.id)
         {
-            if (arbol->Cliente.login.id == idCliente)
+            if (arbol->login.id == idCliente)
             {
                 aux = arbol;
             }
             else
             {
-                if (idCliente > arbol->Cliente.login.id)
+                if (idCliente> arbol->login.id)
                 {
                     aux = buscarNodoCliente(arbol->izq, idCliente);
                 }

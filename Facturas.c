@@ -16,6 +16,22 @@ STFactura crearFactura(arbolClientes *Arbol, int fecha, char nombre[], char DNI[
     return nueva;
 }
 
+nodoFactura *inicLista()
+{
+    return NULL;
+}
+
+nodoFactura *agregarAlPrincipio(nodoFactura *lista, nodoFactura *nuevoNodo)
+{
+    if (lista)
+    {
+        lista->sig = nuevoNodo;
+        nuevoNodo->ante = lista;
+    }
+    lista=nuevoNodo;
+    return lista;
+}
+
 nodoFactura *CrearFacturaNodo(STFactura factura)
 {
     nodoFactura *nueva = (nodoFactura *)malloc(sizeof(nodoFactura));
@@ -78,3 +94,5 @@ void mostrarFactura(arbolClientes *arbol)
         mostrarArbol(arbol->der);
     }
 }
+
+/// === Nodo
