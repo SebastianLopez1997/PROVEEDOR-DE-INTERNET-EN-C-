@@ -1,8 +1,5 @@
-#ifndef ADMIN_H_INCLUDED
-#define ADMIN_H_INCLUDED
+#pragma once
 
 /// === Prototipados.
 int ComprobarAdmin(char usuario[20], char contrasena[20]);
 void menuAdministrador();
-
-#endif

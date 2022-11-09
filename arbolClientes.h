@@ -1,5 +1,4 @@
-#ifndef ARBOLCLIENTES_H_INCLUDED
-#define ARBOLCLIENTES_H_INCLUDED
+#pragma once
 #include "Facturas.h"
 #include "Clientes.h"
 
@@ -25,4 +24,3 @@ arbolClientes *nodoMasIzquierda(arbolClientes *arbol);
 arbolClientes *buscarNodoCliente(arbolClientes *arbol, int DNI);
 arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol);
 
-#endif

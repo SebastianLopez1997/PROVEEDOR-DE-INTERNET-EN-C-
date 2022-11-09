@@ -6,7 +6,7 @@
 #include "Facturas.h"
 #include "Utilidades.h"
 
-arbolClientes *Menu(arbolClientes *arbolPrincipal)
+arbolClientes * Menu(arbolClientes *arbolPrincipal)
 {
     int opcion = 0;
     char seguir='s';
@@ -24,6 +24,7 @@ arbolClientes *Menu(arbolClientes *arbolPrincipal)
     switch (opcion)
     {
     case 1:
+        /// Login usuario.
         int opcionCliente = 0;
         while (opcionCliente > 0 && opcionCliente < 5)
         {
@@ -33,7 +34,7 @@ arbolClientes *Menu(arbolClientes *arbolPrincipal)
             switch (opcionCliente)
             {
             case 1:
-                // FUNCION PARA VER LOS DATOS CARGADOS
+
 
                 break;
             case 2:

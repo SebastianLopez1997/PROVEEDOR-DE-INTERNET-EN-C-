@@ -1,6 +1,4 @@
-#ifndef CLIENTES_H_INCLUDED
-#define CLIENTES_H_INCLUDED
-
+#pragma once
 typedef struct
 {
     char Direccion[20];
@@ -67,5 +65,5 @@ void cambiarPassword(char password[]);
 STCliente CargarUnCliente();
 STPersonal cargaDatosPersonales();
 STServicio CargaServicio();
-
-#endif
+STRegistroCliente crearRegistroRand(int id, char archivo[]);
+ /// ESTAS?

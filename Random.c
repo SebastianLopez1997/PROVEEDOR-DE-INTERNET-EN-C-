@@ -60,7 +60,7 @@ void domicilioRandom(char domicilio[])
     strcpy(domicilio, strcat(domicilios[a], numeraciones[b]));
 }
 
-void movilRandom(char barrio[])
+void barrioRandom(char barrio[])
 {
     char barrio[][20] = {"Acantilados", "Aeroparque", "Alfar", "Caisamar", "Centenario", "Cerrito", "Constitucion", "Estrada", "Faro", "Juramento", "Libertad",
                          "Montemar", "Pueyrredon", "Sarmiento", "Zacagnini"};
@@ -74,6 +74,15 @@ void servicioRandom(int servicio[])
     int servicio[] = {0, 1, 2};
     int a = rand() % 3;
 }
+void cableRandom(int * cable){
+    int a= rand()%2;
+    *cable=a;
+}
+void internetRandom(int *internet){
+    int a=rand()%2;
+    *internet=a;
+}
+
 void dniRandom(char DNI[])
 {
     int opcion = rand() % 9;

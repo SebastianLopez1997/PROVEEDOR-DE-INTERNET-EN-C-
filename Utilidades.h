@@ -1,6 +1,3 @@
-#ifndef UTILIDADES_H_INCLUDED
-#define UTILIDADES_H_INCLUDED
+#pragma once
 char confirmacionBucle();
 int solicitarIdCliente();
-
-#endif
