@@ -122,7 +122,7 @@ arbolClientes *buscarNodoCliente(arbolClientes *arbol, int idCliente)
             }
             else
             {
-                if (idCliente > arbol->login.id)
+                if (idCliente < arbol->login.id)
                 {
                     aux = buscarNodoCliente(arbol->izq, idCliente);
                 }
@@ -136,7 +136,39 @@ arbolClientes *buscarNodoCliente(arbolClientes *arbol, int idCliente)
     return aux;
 }
 
-arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)  
+arbolClientes *buscarNodoClientePorDNI(arbolClientes *arbol, char DNI[])
+{
+    arbolClientes *aux = inicArbol();
+    int IdEncontrado = -1;
+    if (arbol)
+    {
+        if (strcmpi(arbol->Cliente.Dato.DNI, DNI) == 0)
+        {
+            IdEncontrado = arbol->Cliente.Dato.id;
+        }
+        else
+        {
+            if (DNI < arbol->Cliente.Dato.DNI)
+            {
+                IdEncontrado = buscarNodoClientePorDNI(arbol->izq, DNI);
+            }
+            else
+            {
+                IdEncontrado = buscarNodoClientePorDNI(arbol->der, DNI);
+            }
+        }
+    }
+    return IdEncontrado;
+}
+
+void mostrarDatosdeClienteXID(int idCliente, arbolClientes *arbol)
+{
+    arbolClientes *aux = inicArbol();
+    aux = buscarNodoCliente(arbol, idCliente);
+    MostrarUncliente(aux->Cliente);
+}
+
+arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)
 {
     char seguir = 's';
     int opcion, flag = 1, idBuscado;
@@ -150,7 +182,7 @@ arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)
         modificado = buscarNodoCliente(arbol, idBuscado);
         if (modificado != NULL)
         {
-            nuevo = modificado->Cliente;          
+            nuevo = modificado->Cliente;
             seguir = 'n';
         }
         else
@@ -171,8 +203,7 @@ arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)
         printf("3. Telefono.\n");
         printf("4. Barrio.\n");
         printf("5. Calle.\n");
-        printf("6. Altura.\n");
-        printf("7. Contrasena.\n");
+        printf("6. Contrasena.\n");
 
         scanf("%i", opcion);
         switch (opcion)
@@ -237,15 +268,9 @@ arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)
                 system("cls");
             }
             break;
-        case 7:
-            printf("Ha seleccionado la opcion 7.\n");
+        default:
+            printf("Ha ingresado una opcion invalida.\n");
             seguir = confirmacionBucle();
-            if (seguir == 's')
-            {
-
-                flag = 0;
-                system("cls");
-            }
             break;
         }
         seguir = confirmacionBucle();

@@ -4,10 +4,11 @@
 /// === Estructuras.
 typedef struct
 {
+    int id;
     int fecha;
     int Total;
     char Nombre[30];
-    char DNI[15];
+    char DNI[8];
 } STFactura;
 
 typedef struct
@@ -26,3 +27,5 @@ void mostrarFactura(arbolClientes *arbol);
 void MostrarTodasLasFacturasDeUnCliente(nodoFactura *Lista);
 nodoFactura *inicLista();
 nodoFactura *agregarAlPrincipio(nodoFactura *lista, nodoFactura *nuevoNodo);
+void PersistenciaDeFactura(char ArchiFacturas[], arbolClientes *Arbol);
+void AbrirArchiFacturasYleer(char ArchiFacturas[]);

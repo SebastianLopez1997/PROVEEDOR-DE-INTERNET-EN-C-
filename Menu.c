@@ -6,10 +6,10 @@
 #include "Facturas.h"
 #include "Utilidades.h"
 
-arbolClientes * Menu(arbolClientes *arbolPrincipal)
+arbolClientes *Menu(arbolClientes *arbolPrincipal)
 {
-    int opcion = 0;
-    char seguir='s';
+    int opcion = 1;
+    char seguir = 's';
 
     while (opcion != 1 || opcion != 2 || opcion != 3)
     {
@@ -19,59 +19,68 @@ arbolClientes * Menu(arbolClientes *arbolPrincipal)
         }
     }
 
-    while(seguir=='s'){
-
-    switch (opcion)
+    while (seguir == 's')
     {
-    case 1:
-        /// Login usuario.
-        int opcionCliente = 0;
-        while (opcionCliente > 0 && opcionCliente < 5)
+        int ID = -1;
+        switch (opcion)
         {
-            printf("Seleccione 1_Para ver sus datos\nSeleccione 2_Para ver las facturas\nSeleccione 3_Para modificar datos personales\nSeleccione 4_Para solicitar labaja");
-            scanf("%i", &opcionCliente);
-            /// FUNCION LOGIN DE USUARIO
-            switch (opcionCliente)
+        case 1:
+            int flag = 0;
+            while (flag == 0)
             {
-            case 1:
-
-
-                break;
-            case 2:
-                /// FUNCION PARA VER TODAS LAS FACURAS DEL USUARIO
-                break;
-            case 3:
-                /// FUNCION PARA MODIFICAR LOS DATOS DEL USUARIO
-                break;
-            case 4:
-                /// FUNCION PARA PEDIR LA BAJA AL ADMINISTRADOR
-                break;
-            default:
-                printf("\nSelecciono una opcion invalida\n");
-                break;
-
-                printf("Presione 0 para salir o 1 para volver al menu");
-                scanf("%i", &opcionCliente);
+                ID = LoginDeUsuario(arbolPrincipal);
+                if (ID != -1)
+                {
+                    flag = 1;
+                }
             }
-        }
-    case 2:
-        printf("Un gusto verlo nuevamente, ingrese los datos personales solicitados");
-        /// Comprobacion de usuario y contraseña para el ADMINISTRADOR
-        /// Funciones de baja de usuario, realizar envios de facturas, mensajes de soporte
-        break;
-    case 3:
-        printf("Bienvenido, te deseamos que tengas la mejor experiencia con nuestro servicios, a continuacion se te ofrecera servicios y planes para que puedas solicitar el que desee, al finalizar se le solocitara sus datos personales para poder realizar la instalacion de los servicios");
-        STCliente nuevoCliente = CargarUnCliente();
-        arbolClientes *Nuevo = crearNodoArbol(nuevoCliente);
-        arbolPrincipal = agregarNodoArbol(arbolPrincipal, Nuevo);
-        /// ACA IRIA EL ALTA USUARIO.
+            arbolClientes *Cliente = inicArbol();
+            Cliente = buscarNodoCliente(arbolPrincipal, ID);
+            int opcionCliente = 1;
+            while (opcionCliente > 0 && opcionCliente < 5)
+            {
+                printf("Seleccione 1_Para ver sus datos\nSeleccione 2_Para ver las facturas\nSeleccione 3_Para modificar datos personales\nSeleccione 4_Para dar la baja de los servicios");
+                scanf("%i", &opcionCliente);
+                /// FUNCION LOGIN DE USUARIO
 
-        break;
-    default:
-        printf("\nOpcion invalida\n");
-        seguir=confirmacionBucle();
-        break;
-    }
+                switch (opcionCliente)
+                {
+                case 1:
+                    mostrarDatosdeClienteXID(ID, arbolPrincipal);
+                    break;
+                case 2:
+                    MostrarTodasLasFacturasDeUnCliente(Cliente->Factura);
+                    break;
+                case 3:
+                    Cliente = modificarDatosPersonalesCliente(Cliente);
+                    break;
+                case 4:
+                    DarmeLaBaja(Cliente->Cliente);
+                    break;
+                default:
+                    printf("\nSelecciono una opcion invalida\n");
+                    break;
+
+                    printf("Presione 0 para salir o 1 para volver al menu");
+                    scanf("%i", &opcionCliente);
+                }
+            }
+        case 2:
+            printf("Un gusto verlo nuevamente, ingrese los datos personales solicitados");
+            menuAdministrador(arbolPrincipal);
+            /// Agregar cosas para administrador
+            break;
+        case 3:
+            printf("Bienvenido, te deseamos que tengas la mejor experiencia con nuestro servicios, a continuacion se te ofrecera servicios y planes para que puedas solicitar el que desee, al finalizar se le solocitara sus datos personales para poder realizar la instalacion de los servicios");
+            STCliente nuevoCliente = CargarUnCliente();
+            arbolClientes *Nuevo = crearNodoArbol(nuevoCliente);
+            arbolPrincipal = agregarNodoArbol(arbolPrincipal, Nuevo);
+            break;
+        default:
+            printf("\nOpcion invalida\n");
+            seguir = confirmacionBucle();
+            break;
+        }
     }
     return arbolPrincipal;
 }

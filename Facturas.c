@@ -1,13 +1,16 @@
+#pragma once
 #include <stdio.h>
 #include <stdlib.h>
+#include "arbolClientes.h"
 #include "Facturas.h"
 #define INTERNET 1500
 #define CABLE 500
 
 /// ===Desarrollo funciones.
-STFactura crearFactura(arbolClientes *Arbol, int fecha, char nombre[], char DNI[])
+STFactura crearFactura(arbolClientes * Arbol, int fecha, char nombre[], char DNI[])
 {
     STFactura nueva;
+    nueva.id = Arbol->Cliente.Dato.id;
     strcpy(nueva.DNI, DNI);
     strcpy(nueva.Nombre, nombre);
     nueva.fecha = fecha;
@@ -63,7 +66,7 @@ int SacarTotal(arbolClientes *Arbol)
     }
     return total;
 }
-
+/// mostrar facturas
 void MuestraUnicaFactura(STFactura Factura)
 {
     printf("\nDNI: %c\n", Factura.DNI);
@@ -93,4 +96,61 @@ void mostrarFactura(arbolClientes *arbol)
     }
 }
 
-/// === Nodo
+/// === Nodob
+
+void PersistenciaDeFactura(char ArchiFacturas[], arbolClientes *Arbol)
+{
+    FILE *BUFFER = fopen(ArchiFacturas, "ab");
+
+    while (Arbol->Factura != NULL)
+    {
+        fwrite(&Arbol->Factura, sizeof(STFactura), 1, BUFFER);
+        Arbol->Factura = Arbol->Factura->sig;
+    }
+    fclose(BUFFER);
+}
+
+void AbrirArchiFacturasYleer(char ArchiFacturas[])
+{
+    FILE *BUFFER = fopen(ArchiFacturas, "rb");
+    STFactura Aux;
+    while (fread(&Aux, sizeof(STFactura), 1, BUFFER) > 0)
+    {
+        MuestraUnicaFactura(Aux);
+    }
+    fclose(BUFFER);
+}
+
+void DespersistenciaDeFacturas(char ArchiFacturas[], arbolClientes *arbol)
+{
+    STFactura aux;
+    FILE *fp = fopen(ArchiFacturas, "rb");
+    if (fp)
+    {
+        while (fread(&aux, sizeof(STFactura), 1, fp) > 0)
+        {
+            nodoFactura *nuevo = CrearFacturaNodo(aux);
+            arbolClientes *arbolAux = buscarNodoCliente(arbol, nuevo->id);
+            if (arbolAux)
+            {
+                arbolAux->Factura = agregarAlPrincipio(arbolAux->Factura, nuevo);
+            }
+        }
+        fclose(fp);
+    }
+}
+
+void DespersistirFacturasClienteEspecifico(char ArchiFacturas[], arbolClientes * cliente){
+    STFactura aux;
+    FILE * fp=fopen(ArchiFacturas, "rb");
+    if(fp){
+        while(fread(&aux, sizeof(STFactura), 1, fp) > 0){
+            if(aux.id==cliente->login.id){
+                nodoFactura * nuevo=CrearFacturaNodo(aux);
+                cliente->Factura=agregarAlPrincipio(cliente->Factura, nuevo);
+            }
+        }
+        fclose(fp);
+    }
+}
+

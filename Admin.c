@@ -29,14 +29,24 @@ int ComprobarUsuario(arbolClientes *arbol, char usuario[20], char contrasena[20]
     return flag;
 }
 
-void menuAdministrador(arbolClientes * arbol)
+int LoginDeUsuario(arbolClientes *Arbol)
 {
-    int flag = 0;
+    char DNI[10], Contraseña[10];
+    printf("\nIngrese su DNI\n");
+    scanf("%s", &DNI);
+    printf("\nIngrese Su contraseña\n");
+    scanf("%s", &Contraseña);
+    int id = buscarNodoClientePorDNI(Arbol,DNI);
+    return id;
+}
+
+void menuAdministrador(arbolClientes *arbol)
+{
     char user[20];
     char password[20];
     char seguir = 's';
 
-    while (seguir == 's' && flag == 0)
+    while (seguir == 's')
     {
         printf("Bienvenido.\n");
         printf("Ingrese el nombre de usuario.\n");
@@ -65,10 +75,7 @@ void funcionesAdministrador(arbolClientes *arbol)
         printf("Ingrese la opcion que desea realizar.\n");
         printf("1. Mostrar clientes.\n");
         printf("2. Buscar cliente.\n");
-        printf("3. Modificar datos cliente.\n");
-        printf("4. Alta Cliente.\n");
-        printf("5. Baja Cliente.\n");
-        printf("6. Finalizar sesion.\n");
+        printf("3. Finalizar sesion.\n");
         scanf("%i", opcion);
     }
     switch (opcion)
@@ -93,16 +100,7 @@ void funcionesAdministrador(arbolClientes *arbol)
         }
         break;
     case 3:
-        int idCliente = solicitarIdCliente();
-        arbolClientes *buscado = buscarNodoCliente(arbol, idCliente);
-        {
-            if (buscado)
-                arbol = modificarDatosPersonalesCliente(arbol);
-            else
-                printf("\nCliente no encontrado.\n");
-            break;
-        case 4:
-            break;
-        }
+
+        break;
     }
 }

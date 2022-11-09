@@ -21,6 +21,7 @@ void mostrarNodoArbol(arbolClientes *nodo);
 arbolClientes *borrarCliente(arbolClientes *arbol, arbolClientes *borrado);
 arbolClientes *nodoMasDerecha(arbolClientes *arbol);
 arbolClientes *nodoMasIzquierda(arbolClientes *arbol);
-arbolClientes *buscarNodoCliente(arbolClientes *arbol, int DNI);
+arbolClientes *buscarNodoCliente(arbolClientes *arbol, int idCliente);
 arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol);
-
+arbolClientes *buscarNodoClientePorDNI(arbolClientes *arbol, char DNI[]);
+void mostrarDatosdeClienteXID(int idCliente, arbolClientes *arbol);

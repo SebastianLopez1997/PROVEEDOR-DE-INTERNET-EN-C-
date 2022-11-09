@@ -1,4 +1,8 @@
 #pragma once
+#include <stdlib.h>
+#include <stdio.h>
+#include "arbolClientes.h"
+
 typedef struct
 {
     char Direccion[20];
@@ -8,7 +12,7 @@ typedef struct
 typedef struct
 {
     int id;
-    char pass[8];
+    char pass[10];
 } STLogin;
 
 typedef struct
@@ -44,7 +48,6 @@ typedef struct
     char NumeroCel[20];
     /// Direccion
     char Direccion[20];
-    char Altura[5];
     char Barrio[20];
     /// Servicios
     int Internet;
@@ -60,10 +63,16 @@ void modificarCalle(char calle[]);
 void modificarAltura(char altura[]);
 void modificarDomicilio();
 void cambiarPassword(char password[]);
+STCliente DarmeLaBaja(STCliente aux);
 
 /// CARGA CLIENTE.
 STCliente CargarUnCliente();
 STPersonal cargaDatosPersonales();
 STServicio CargaServicio();
 STRegistroCliente crearRegistroRand(int id, char archivo[]);
- /// ESTAS?
+void PersistirCliente(arbolClientes *cliente, FILE *fp);
+STRegistroCliente crearRegistroCliente(arbolClientes *cliente);
+void persistirArbol(char archivo[], arbolClientes *arbol);
+void recorrerYGuardar(arbolClientes *arbol, FILE *fp);
+/// MOSTRAR CLIENTE
+void MostrarUncliente(STCliente aux);
