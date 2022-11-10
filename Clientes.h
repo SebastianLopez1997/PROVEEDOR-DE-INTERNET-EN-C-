@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "arbolClientes.h"
+#include "Clientes.h"
 
 typedef struct
 {

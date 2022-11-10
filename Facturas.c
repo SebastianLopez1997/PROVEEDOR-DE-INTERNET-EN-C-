@@ -1,13 +1,14 @@
-#pragma once
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "arbolClientes.h"
+#include "Clientes.h"
 #include "Facturas.h"
 #define INTERNET 1500
 #define CABLE 500
 
 /// ===Desarrollo funciones.
-STFactura crearFactura(arbolClientes * Arbol, int fecha, char nombre[], char DNI[])
+STFactura crearFactura(arbolClientes *Arbol, int fecha, char nombre[], char DNI[])
 {
     STFactura nueva;
     nueva.id = Arbol->Cliente.Dato.id;
@@ -100,12 +101,17 @@ void mostrarFactura(arbolClientes *arbol)
 
 void PersistenciaDeFactura(char ArchiFacturas[], arbolClientes *Arbol)
 {
+    arbolClientes *aux = NULL;
+    aux = Arbol;
+    nodoFactura *listaAux = NULL;
+    listaAux = Arbol->Factura;
+
     FILE *BUFFER = fopen(ArchiFacturas, "ab");
 
-    while (Arbol->Factura != NULL)
+    while (listaAux != NULL)
     {
-        fwrite(&Arbol->Factura, sizeof(STFactura), 1, BUFFER);
-        Arbol->Factura = Arbol->Factura->sig;
+        fwrite(&listaAux, sizeof(STFactura), 1, BUFFER);
+        listaAux = listaAux->sig;
     }
     fclose(BUFFER);
 }
@@ -140,17 +146,20 @@ void DespersistenciaDeFacturas(char ArchiFacturas[], arbolClientes *arbol)
     }
 }
 
-void DespersistirFacturasClienteEspecifico(char ArchiFacturas[], arbolClientes * cliente){
+void DespersistirFacturasClienteEspecifico(char ArchiFacturas[], arbolClientes *cliente)
+{
     STFactura aux;
-    FILE * fp=fopen(ArchiFacturas, "rb");
-    if(fp){
-        while(fread(&aux, sizeof(STFactura), 1, fp) > 0){
-            if(aux.id==cliente->login.id){
-                nodoFactura * nuevo=CrearFacturaNodo(aux);
-                cliente->Factura=agregarAlPrincipio(cliente->Factura, nuevo);
+    FILE *fp = fopen(ArchiFacturas, "rb");
+    if (fp)
+    {
+        while (fread(&aux, sizeof(STFactura), 1, fp) > 0)
+        {
+            if (aux.id == cliente->login.id)
+            {
+                nodoFactura *nuevo = CrearFacturaNodo(aux);
+                cliente->Factura = agregarAlPrincipio(cliente->Factura, nuevo);
             }
         }
         fclose(fp);
     }
 }
-

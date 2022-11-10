@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Clientes.h"
@@ -178,7 +179,6 @@ void PersistirCliente(arbolClientes *cliente, FILE *fp)
         fwrite(&aux, sizeof(STRegistroCliente), 1, fp);
     }
 }
-
 STRegistroCliente crearRegistroCliente(arbolClientes *cliente)
 {
     STRegistroCliente aux;
