@@ -1,16 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-
+#pragma once
+#include "arbolClientes.h"
 
 /// === Estructuras.
 typedef struct
 {
+    int id;
     int fecha;
     int Total;
     char Nombre[30];
-    char DNI[15];
+    char DNI[8];
 } STFactura;
 
 typedef struct
@@ -22,4 +20,12 @@ typedef struct
 } nodoFactura;
 
 /// === Prototipados.
-STFactura crearFactura(int fecha, int total, char nombre[30], char DNI[15]);
+STFactura crearFactura(arbolClientes *Arbol, int fecha, char nombre[], char DNI[]);
+void MostrarTodasLasFacturas(nodoFactura *Lista);
+void MuestraUnicaFactura(STFactura Factura);
+void mostrarFactura(arbolClientes *arbol);
+void MostrarTodasLasFacturasDeUnCliente(nodoFactura *Lista);
+nodoFactura *inicLista();
+nodoFactura *agregarAlPrincipio(nodoFactura *lista, nodoFactura *nuevoNodo);
+void PersistenciaDeFactura(char ArchiFacturas[], arbolClientes *Arbol);
+void AbrirArchiFacturasYleer(char ArchiFacturas[]);
