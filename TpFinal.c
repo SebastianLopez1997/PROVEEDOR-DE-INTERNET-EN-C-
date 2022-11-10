@@ -2,12 +2,17 @@
 #include <time.h>
 #include <string.h>
 #include <math.h>
+#include "arbolClientes.h"
+#include "Menu.h"
+#include "Admin.h"
 #include "Clientes.h"
 #include "Facturas.h"
-#include "arbolClientes.h"
+#include "Random.h"
+#include "Utilidades.h"
 
 int main()
 {
+<<<<<<< HEAD
     int opcion = 0;
     system("cls");
 ///<<<<<<< HEAD
@@ -71,7 +76,16 @@ int main()
 ///<<<<<<< HEAD
     system("pause");
     /// Si llega esto esta todo ok
+<<<<<<< HEAD
 ///=======
 ///>>>>>>> c8b738889ca733ed468df5483617ca99174ece01
+=======
+=======
+>>>>>>> c8b738889ca733ed468df5483617ca99174ece01
+=======
+    arbolClientes *Arbol = inicArbol();
+    Menu(Arbol);
+>>>>>>> 0e2956f2ff6dcc8321b3252933699e7eff584bf5
+>>>>>>> main
     return 0;
 }

@@ -1,25 +1,33 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "Clientes.h"
+#pragma once
 #include "Facturas.h"
+#include "Clientes.h"
 
 /// Estructuras.
-typedef struct{
+typedef struct arbolClientes
+{
     STCliente Cliente;
+<<<<<<< HEAD
     struct arbolClientes * izq;
     struct arbolClientes * der;
 }arbolClientes;
+=======
+    STLogin login;
+    nodoFactura *Factura;
+    struct arbolClientes *izq;
+    struct arbolClientes *der;
+} arbolClientes;
+>>>>>>> main
 
-/// Prototipados. 
-arbolClientes * inicArbol();
-arbolClientes * crearNodoArbol(STCliente cliente);
-arbolClientes * agregarNodoArbol(arbolClientes * arbol, arbolClientes * nuevoNodo);
-void mostrarArbol(arbolClientes * arbol);
-void mostrarNodoArbol(arbolClientes * nodo);
-arbolClientes * borrarCliente(arbolClientes * arbol, arbolClientes * borrado);
-arbolClientes * nodoMasDerecha(arbolClientes * arbol);
-arbolClientes * nodoMasIzquierda(arbolClientes * arbol);
-arbolClientes * buscarNodoCliente(arbolClientes * arbol, int DNI);
-arbolClientes * modificarDatosPersonalesCliente(arbolClientes * arbol);
-char confirmacionBucle();
+/// Prototipados.
+arbolClientes *inicArbol();
+arbolClientes *crearNodoArbol(STCliente cliente);
+arbolClientes *agregarNodoArbol(arbolClientes *arbol, arbolClientes *nuevoNodo);
+void mostrarArbol(arbolClientes *arbol);
+void mostrarNodoArbol(arbolClientes *nodo);
+arbolClientes *borrarCliente(arbolClientes *arbol, arbolClientes *borrado);
+arbolClientes *nodoMasDerecha(arbolClientes *arbol);
+arbolClientes *nodoMasIzquierda(arbolClientes *arbol);
+arbolClientes *buscarNodoCliente(arbolClientes *arbol, int idCliente);
+arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol);
+arbolClientes *buscarNodoClientePorDNI(arbolClientes *arbol, char DNI[]);
+void mostrarDatosdeClienteXID(int idCliente, arbolClientes *arbol);

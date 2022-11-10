@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /// === ESTRUCTURAS.
 typedef struct{
     char username[20];
@@ -6,3 +7,12 @@ typedef struct{
 }Admin;
 
 /// === PROTOTIPADOS.
+=======
+#pragma once
+#include "arbolClientes.h"
+
+/// === Prototipados.
+int ComprobarAdmin(char usuario[20], char contrasena[20]);
+void menuAdministrador();
+int LoginDeUsuario(arbolClientes *Arbol);
+>>>>>>> main
